@@ -1,13 +1,13 @@
-async function submitCourse(courseName, credits, grade) {
-  const newCourse = {
-    name: courseName,
-    sks: Number(credits),
-    grade: grade,
+async function addStudent(name, gpa, semester) {
+  const student = {
+    name: name,
+    gpa: Number(gpa),
+    semester: Number(semester),
   };
 
   try {
     const response = await fetch(
-      'https://6a000e842b7ab34960300690.mockapi.io/softdev/course',
+      'https://6a000e842b7ab34960300690.mockapi.io/softdev/student',
       {
         // override the default method which is 'GET'
         method: 'POST',
@@ -16,25 +16,25 @@ async function submitCourse(courseName, credits, grade) {
           'Content-Type': 'application/json',
         },
         // convert the object to a JSON string
-        body: JSON.stringify(newCourse),
+        body: JSON.stringify(student),
       },
     );
 
     if (!response.ok)
       throw new Error(`Response status code: ${response.status}`);
 
-    const savedCourse = await response.json();
-    console.log(savedCourse);
+    const savedStudent = await response.json();
+    console.log(savedStudent);
   } catch (error) {
     console.error(error);
   }
 }
 
-submitCourse('Teknis Kepabeanan dan Cukai', 2, 'A');
+addStudent('Bambang Tembang', 3.9, 4);
 // {
-//   createdAt: 1778389428,
-//   name: 'Teknis Kepabeanan dan Cukai',
-//   sks: 2,
-//   grade: 'A',
-//   id: '5'
+//   createdAt: 1778412775,
+//   name: 'Bambang Tembang',
+//   gpa: 3.9,
+//   semester: 4,
+//   id: '2'
 // }
