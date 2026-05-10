@@ -26,3 +26,18 @@ Run any file with Node.js, e.g.:
 ```bash
 node get.js
 ```
+
+## References
+
+### References for Asynchronous JS:
+
+- https://eloquentjavascript.net/11_async.html
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS
+- https://www.w3schools.com/js/js_asynchronous.asp
+- https://javascript.info/async
+
+### References for The Fetch API:
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+- https://javascript.info/network
+- https://mimo.org/glossary/javascript/fetch-api
