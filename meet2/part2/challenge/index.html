@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Kampus — Nilai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <h1>Portal Kampus</h1>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="index.html" class="active">Nilai</a></li>
+        <li><a href="#">Jadwal</a></li>
+      </ul>
+    </nav>
+    <button id="dark-mode-btn" class="dark-mode-btn">Dark</button>
+  </header>
+
+  <main class="content-wrapper">
+
+    <section class="summary-section">
+      <h2>Ringkasan Akademik</h2>
+      <div class="summary-stats">
+        <div class="stat-card">
+          <span class="stat-value">4.99</span>
+          <span class="stat-label">IPK</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">120</span>
+          <span class="stat-label">Total SKS</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">Ganjil 2025</span>
+          <span class="stat-label">Semester Berjalan</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grades-section">
+      <h2>Nilai Semester Ini</h2>
+      <div class="grade-list">
+      </div>
+    </section>
+
+    <!-- CHALLENGE 1: Add Course Form -->
+    <!-- Fires a fetch() POST before touching the DOM. -->
+    <section class="add-course-section">
+      <h2>Tambah Mata Kuliah</h2>
+      <form id="add-course-form" class="add-course-form">
+
+        <div class="form-group">
+          <label for="input-course-name">Nama Mata Kuliah</label>
+          <input
+            type="text"
+            id="input-course-name"
+            placeholder="contoh: Ekonometrika"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="input-sks">Jumlah SKS</label>
+          <input
+            type="number"
+            id="input-sks"
+            min="1"
+            max="6"
+            value="3"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="input-grade">Nilai</label>
+          <select id="input-grade" required>
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="C+">C+</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+
+        <!-- Give the submit button an id so script.js can disable it during the request -->
+        <button type="submit" id="submit-btn" class="submit-btn">Tambahkan Mata Kuliah</button>
+      </form>
+    </section>
+
+    <!-- CHALLENGE 2: Quote Section -->
+    <!-- The "Muat Kutipan" button triggers a fetch() GET
+         to a public quotes API and renders the result into this card. -->
+    <section class="quote-section">
+      <h2>Motivasi Hari Ini</h2>
+      <div class="quote-card">
+        <p id="quote-text" class="quote-text">
+          Klik tombol di bawah untuk memuat kutipan motivasi.
+        </p>
+        <p id="quote-author" class="quote-author"></p>
+        <button id="load-quote-btn" class="load-quote-btn">Muat Kutipan</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Sistem Informasi Kampus &nbsp;|&nbsp; <a href="#">Bantuan</a> &nbsp;|&nbsp; <a href="#">Ketentuan Akademik</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
