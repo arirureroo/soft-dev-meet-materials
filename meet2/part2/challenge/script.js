@@ -10,7 +10,7 @@ darkModeBtn.addEventListener('click', () => {
 // CHALLENGE 1: UPGRADE THE FORM WITH fetch() POST & GET TO LOAD ALL COURSE
 //
 // What changed from Meet 2A:
-//   1. The event listener callback is now `async` — required to use `await` inside it.
+//   1. The event listener callback is now `async` because required to use `await` inside it.
 //   2. Before touching the DOM, we fire a fetch() POST to send the course data
 //      to the MockAPI endpoint 'https://6a000e842b7ab34960300690.mockapi.io/softdev/course'.
 //      The shape of request body:
@@ -105,7 +105,7 @@ function getGradeBadgeClass(grade) {
 }
 
 // Creates a temporary toast notification at the top of the page.
-// `type` is optional — pass 'error' to show a red notification.
+// `type` is optional, pass 'error' to show a red notification.
 function showNotification(message, type = 'success') {
   const notification = document.createElement('div');
   notification.classList.add('notification');
