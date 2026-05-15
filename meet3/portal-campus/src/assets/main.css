@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+/* Override the dark variant to use a `.dark` class on <html> instead of
+  the default @media (prefers-color-scheme: dark).
+  This lets us toggle dark mode with JavaScript (stores/ui.js). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom theme layer for the Portal Kampus brand colour. */
+@theme {
+  --color-brand: #1a237e;
+  --color-brand-light: #283593;
+  --color-brand-dark: #0d1b3e;
+}
