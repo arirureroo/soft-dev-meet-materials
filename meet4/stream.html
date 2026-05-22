@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stream Simulator</title>
+  </head>
+  <body style="width: 100dvw;">
+    <h2>Stream Simulator</h2>
+
+    <label for="input">Request body:</label><br />
+    <textarea id="input" rows="4" cols="50">
+Hello! This is a simulated streaming response from the server.</textarea
+    ><br /><br />
+
+    <button id="send">Send</button>
+
+    <hr />
+
+    <h3>Response stream:</h3>
+    <pre id="response-log" style="text-wrap: wrap;"></pre>
+
+    <script>
+const sendBtn = document.getElementById('send');
+const inputEl = document.getElementById('input');
+const responseLog = document.getElementById('response-log');
+
+sendBtn.addEventListener('click', async () => {
+  const body = inputEl.value;
+
+  responseLog.textContent = '';
+  sendBtn.disabled = true;
+
+  const res = await fetch('http://localhost:8000', {
+    method: 'POST',
+    headers: { 'content-type': 'text/plain' },
+    body,
+  });
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+
+  // Read chunks one by one as the server sends them
+  while (true) {
+    const { done, value } = await reader.read();
+
+    if (done) {
+      responseLog.textContent += '\n[Stream closed]';
+      sendBtn.disabled = false;
+      break;
+    }
+
+    const chunk = decoder.decode(value, { stream: true });
+    responseLog.textContent += chunk;
+  }
+});
+    </script>
+  </body>
+</html>
