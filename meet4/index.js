@@ -8,6 +8,9 @@ const data = {
 // track the last assigned id for new records
 let lastId = 2;
 
+// CRUD (Create, Read, Update, Delete)
+
+// Read (R)
 // return all students
 function getAllStudents(req, res) {
   // build an array from the object map for JSON output
@@ -19,6 +22,7 @@ function getAllStudents(req, res) {
   res.end(JSON.stringify(students));
 }
 
+// Read (R)
 // return one student by id from the path
 function getStudent(req, res) {
   // the id is the last segment in /students/:id
@@ -35,6 +39,7 @@ function getStudent(req, res) {
   res.end(JSON.stringify(student));
 }
 
+// Create (C)
 // create a new student from JSON request body
 async function createStudent(req, res) {
   // wait until all body chunks arrive before parsing
@@ -57,6 +62,7 @@ async function createStudent(req, res) {
   res.end(JSON.stringify(data[lastId]));
 }
 
+// Update (U)
 // update an existing student by id
 async function updateStudent(req, res) {
   // wait for the full request body before parsing and merging updates
@@ -81,6 +87,7 @@ async function updateStudent(req, res) {
   res.end(JSON.stringify(data[id]));
 }
 
+// Delete (D)
 function deleteStudent(req, res) {
   const id = req.url.pathname.split('/').at(-1);
   if (!data[id]) {
