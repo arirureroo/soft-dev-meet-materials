@@ -1,0 +1,17 @@
+{
+  "name": "campus-portal-api",
+  "version": "1.0.0",
+  "description": "Campus Portal API Meet 7: Security & Validation",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^9.4.3",
+    "express": "^4.18.2",
+    "joi": "^17.12.2"
+  }
+}
