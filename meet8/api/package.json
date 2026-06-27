@@ -1,0 +1,19 @@
+{
+  "name": "campus-portal-api",
+  "version": "1.0.0",
+  "description": "Campus Portal API Meet 8: Integration",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "joi": "^18.2.3"
+  }
+}
